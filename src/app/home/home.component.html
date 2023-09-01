@@ -1,0 +1,9 @@
+<div class="items-list">
+    <div class="item" *ngFor="let product of this.products" (click) = "goItem(product)">
+   
+         <img [src]= "product.image" alt="Something went wrong" width="150">
+    <p class="productName">{{product.name}}</p>
+    <p class="price">{{product.price}} $</p>
+  
+   </div>
+</div>
