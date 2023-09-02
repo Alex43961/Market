@@ -6,7 +6,7 @@
     <button>Bay</button>
     <p>{{ product.description }}</p>
    <ul *ngFor="let comment of product.comments">
-   <li>{{product.comments}} </li>
+   <li>{{comment}} </li>
    </ul>
 </div>
 <button (click)="goBack()">Back</button>
