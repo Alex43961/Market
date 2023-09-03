@@ -2,8 +2,8 @@
   <div class="search">
     <input type="search" [(ngModel)]="filter">
   </div>
-  <button>Admin</button>
-  <div class="cart">Cart</div>
+  <button (click)="goToAdminPage()">Admin</button>
+  <div class="cart" (click)="goToCart()">Cart</div>
 </div>
 
 <div class="items-list">

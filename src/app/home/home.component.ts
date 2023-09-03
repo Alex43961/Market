@@ -61,4 +61,11 @@ export class HomeComponent {
     return this.filteredProducts.slice(this.startIndex, this.endIndex);
   }
 
+goToAdminPage() {
+  this.router.navigate(['admin-page']);
+}
+
+goToCart() {
+  this.router.navigate(['cart']);
+}
 }
