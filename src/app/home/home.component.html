@@ -5,7 +5,7 @@
 <button>Admin</button>
 <div>Cart</div>
 <div class="items-list">
-     <div class="item" *ngFor="let product of this.products" (click)="goItem(product)">
+     <div *ngFor="let product of this.showedProducts" class="item" (click)="goItem(product)">
 
           <img [src]="product.image" alt="Something went wrong" width="150">
           <p class="productName">{{product.name}}</p>
@@ -13,6 +13,26 @@
 
      </div>
 </div>
-  <!-- <ngb-pagination class="d-flex justify-content-center" [collectionSize]="collectionSize" pageSize="5" [page]="page" [boundaryLinks]="true" (pageChange)="onPageChanged($event)"></ngb-pagination>
-  {{page}}
-  <ngb-pagination class="d-flex justify-content-center" [collectionSize]="collectionSize" [pageSize]="itemsPerPage" [(page)]="page" [boundaryLinks]="true" (pageChange)="onPageChanged($event)"></ngb-pagination> -->
+<div class="pagination">
+  <button
+    (click)="currentPage = currentPage - 1"
+    [disabled]="currentPage === 1"
+  >
+    Previous page
+  </button>
+  <span>{{ currentPage }}</span>
+  <button
+    (click)="currentPage = currentPage + 1"
+    [disabled]="currentPage >= products.length/elementsOnThePage"
+  >
+    Next page
+  </button>
+</div>
+
+
+
+
+
+
+
+
