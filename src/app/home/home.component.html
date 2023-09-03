@@ -1,38 +1,26 @@
-<div class="search">
-     <input type="search">
-     <button>Search</button>
+<div class="navigation">
+  <div class="search">
+    <input type="search" [(ngModel)]="filter">
+  </div>
+  <button>Admin</button>
+  <div class="cart">Cart</div>
 </div>
-<button>Admin</button>
-<div>Cart</div>
+
 <div class="items-list">
-     <div *ngFor="let product of this.showedProducts" class="item" (click)="goItem(product)">
+  <div *ngFor="let product of this.showedProducts" class="item" (click)="goItem(product)">
 
-          <img [src]="product.image" alt="Something went wrong" width="150">
-          <p class="productName">{{product.name}}</p>
-          <p class="price">{{product.price}} $</p>
+    <img [src]="product.image" alt="Something went wrong" width="150">
+    <p class="productName">{{product.name}}</p>
+    <p class="price">{{product.price}} $</p>
 
-     </div>
+  </div>
 </div>
 <div class="pagination">
-  <button
-    (click)="currentPage = currentPage - 1"
-    [disabled]="currentPage === 1"
-  >
+  <button (click)="currentPage = currentPage - 1" [disabled]="currentPage === 1">
     Previous page
   </button>
   <span>{{ currentPage }}</span>
-  <button
-    (click)="currentPage = currentPage + 1"
-    [disabled]="currentPage >= products.length/elementsOnThePage"
-  >
+  <button (click)="currentPage = currentPage + 1" [disabled]="currentPage >= filteredProducts.length/elementsOnThePage">
     Next page
   </button>
 </div>
-
-
-
-
-
-
-
-

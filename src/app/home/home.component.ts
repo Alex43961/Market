@@ -13,12 +13,14 @@ import { ItemService } from '../item.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  
+
 })
 export class HomeComponent {
-  public currentPage:number =1;
-  public elementsOnThePage:number = 5;
-  products: any = [];
+  currentPage: number = 1;
+  elementsOnThePage: number = 5;
+  filter: string = '';
+  products: any[]= [];
+  filteredProducts:any[] = [];
 
 
 
@@ -51,7 +53,12 @@ export class HomeComponent {
     return this.startIndex + this.elementsOnThePage;
   }
 
+  
   get showedProducts(): any[] {
-    return this.products.slice(this.startIndex, this.endIndex);
+    this.filteredProducts = this.products.filter(product =>
+      product.name.toLowerCase().includes(this.filter.toLowerCase())
+    );
+    return this.filteredProducts.slice(this.startIndex, this.endIndex);
   }
+
 }

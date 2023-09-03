@@ -23,21 +23,21 @@ export class ProductsDataService {
     },
     {
       image: "../assets/556_text.webp",
-      name: "item-3",
+      name: "item-13",
       price: 100,
       description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque officia magni incidunt perspiciatis aperiam a beatae deserunt, saepe rerum vitae?",
       comments: []
     },
     {
       image: "../assets/556_text.webp",
-      name: "item-4",
+      name: "item-14",
       price: 100,
       description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque officia magni incidunt perspiciatis aperiam a beatae deserunt, saepe rerum vitae?",
       comments: []
     },
     {
       image: "../assets/556_text.webp",
-      name: "item-5",
+      name: "item-15",
       price: 100,
       description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque officia magni incidunt perspiciatis aperiam a beatae deserunt, saepe rerum vitae?",
       comments: []
