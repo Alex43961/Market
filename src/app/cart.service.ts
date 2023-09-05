@@ -17,9 +17,11 @@ export class CartService {
     } else {
       this.items.push({ ...item, quantity: 1 });
     }
+    console.log(this.items);
   }
 
   getItems(): any[] {
+
     return this.items;
   }
 
@@ -28,14 +30,12 @@ export class CartService {
   }
   getItemCount(): number {
     let initialValue = 0;
-let sum = this.items.reduce(
-  (accumulator, currentValue) => accumulator + currentValue.quantity,
-  initialValue,
-);
-return sum;
-// sum == 6
-
-    // return this.items.length;
+    let sum = this.items.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.quantity,
+      initialValue,
+    );
+    
+    return sum;
   }
 
 

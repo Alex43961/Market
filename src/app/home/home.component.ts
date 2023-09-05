@@ -34,7 +34,7 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.products = this.productsDataService.getProductsList();
-    console.log(this.products);
+    // console.log(this.products);
   }
 
   goItem(product: any) {

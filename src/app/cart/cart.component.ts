@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from '../cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -7,13 +8,17 @@ import { CartService } from '../cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-  cartItems: any[] = [  ]; 
-  selectedCurrency: string = '$'; 
- constructor(private cartService: CartService) {
-this.cartItems = this.cartService.getItems();
- }
+  cartItems: any[] = [];
+  selectedCurrency: string = '$';
+
+
+  constructor
+  (private cartService: CartService,
+  public router: Router) {
+    this.cartItems = this.cartService.getItems();
+  }
   removeItem(item: any): void {
-    
+
     const index = this.cartItems.indexOf(item);
     if (index !== -1) {
       this.cartItems.splice(index, 1);
@@ -21,19 +26,19 @@ this.cartItems = this.cartService.getItems();
   }
 
   increaseQuantity(item: any): void {
-    
+
     item.quantity++;
   }
 
   decreaseQuantity(item: any): void {
-    
+
     if (item.quantity > 1) {
       item.quantity--;
     }
   }
 
   calculateTotal(): number {
-    
+
     let total = 0;
     for (const item of this.cartItems) {
       total += item.price * item.quantity;
@@ -42,11 +47,16 @@ this.cartItems = this.cartService.getItems();
   }
 
   checkout(): void {
-    
+this.cartService.clearCart();
     this.cartItems = [];
   }
 
   getCartItemCount(): number {
     return this.cartService.getItemCount();
   }
+
+   goBack() {
+    this.router.navigate(['']);
+  }
+ 
 }
