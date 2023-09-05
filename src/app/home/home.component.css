@@ -3,14 +3,23 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
+  padding-top: 40px;
 }
 
 .cart {
-    width: 40px;
+    width: 50px;
     height: 22px;
     border: 2px solid blue;
     text-align: center;
     cursor: pointer;
+}
+.cartCounter {
+  position: absolute;
+  border: 1px solid greenyellow;
+  background-color: greenyellow;
+  border-radius: 50%;
+  width: 20px;
+  top: 40px;
 }
 
 .items-list{
