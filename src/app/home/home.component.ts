@@ -33,6 +33,7 @@ export class HomeComponent {
 
 
   ngOnInit(): void {
+    
     this.products = this.productsDataService.getProductsList();
     // console.log(this.products);
   }

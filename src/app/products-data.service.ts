@@ -5,6 +5,7 @@ import { Products } from './products';
   providedIn: 'root'
 })
 export class ProductsDataService {
+  productStorage:any[] =[];
 
   private productsList: Products[] = [
     {
@@ -96,6 +97,12 @@ export class ProductsDataService {
   constructor() { }
 
   getProductsList(): Products[] {
+    const storedData = localStorage.getItem('productList');
+    if (storedData) {
+      this.productStorage = JSON.parse(storedData);
+    }
+    this.productsList.push(...this.productStorage);
+    
     return this.productsList;
   }
 }

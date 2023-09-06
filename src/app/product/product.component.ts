@@ -12,7 +12,9 @@ import { CartService } from '../cart.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
-product: any;
+  product: any;
+  comments: string[] = [];
+  newCommentText: string = '';
 
   constructor(private productsDataService: ProductsDataService,
     public itemService: ItemService,
@@ -26,13 +28,35 @@ product: any;
 
   ngOnInit() {
     const items = this.itemService.getProduct();
-    this.product = items[items.length - 1];   
+    this.product = items[items.length - 1];
+    // Загрузка комментариев из local Storage;
+    const storedComments = localStorage.getItem('productComments');
+    if (storedComments) {
+      this.comments = JSON.parse(storedComments);
+    }
   }
 
   addToCart(item: any): void {
     this.cartService.addToCart(item);
 
+  }
+
+  // Добавление комментария
+  addComment() {
+    if (this.newCommentText.trim() !== '') {
+      // Заменяем слова и символы
+      const sanitizedComment = this.newCommentText.replace(/кокос|банан|плохой|@/gi, '*');
+      this.comments.push(sanitizedComment);
+
+      // Сохраняем обновленные комментарии в localStorage
+      localStorage.setItem('productComments', JSON.stringify(this.comments));
+
+      // Очищаем поле для нового комментария
+      this.newCommentText = '';
+    }
+  }
 }
 
 
-}
+
+

@@ -8,6 +8,7 @@ import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+     ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
