@@ -6,17 +6,14 @@ import { Products } from './products';
 })
 export class ItemService {
 
- product:Products[] = [];
+  product: Products[] = [];
 
   constructor() { }
 
-  setProduct(item:Products){   
-     this.product.push(item);
-    
-    console.log(this.product);
-    
+  setProduct(item: Products) {
+    this.product.push(item);
   }
-  getProduct(){
+  getProduct() {
     return this.product;
   }
 }

@@ -1,8 +1,8 @@
-import { Component, Injectable } from '@angular/core';
+import { Component} from '@angular/core';
 import { ProductsDataService } from '../products-data.service';
-import { Products } from '../products';
 import { Router } from '@angular/router';
 import { ItemService } from '../item.service';
+import { CartService } from '../cart.service';
 
 
 
@@ -27,18 +27,19 @@ export class HomeComponent {
   constructor(
     private productsDataService: ProductsDataService,
     public itemService: ItemService,
+    private cartService: CartService,    
     public router: Router) { }
 
 
 
   ngOnInit(): void {
     this.products = this.productsDataService.getProductsList();
-    console.log(this.products);
+    // console.log(this.products);
   }
 
   goItem(product: any) {
-    const x = product;
-    console.log(x);
+    // const x = product;
+    // console.log(x);
     this.itemService.setProduct(product);
 
     this.router.navigate(['product']);
@@ -68,4 +69,9 @@ goToAdminPage() {
 goToCart() {
   this.router.navigate(['cart']);
 }
+
+ getCartItemCount(): number {
+    return this.cartService.getItemCount();
+  }
+ 
 }
