@@ -20,7 +20,6 @@
       <img src="/assets/logo.png" alt="M.Tech Logo" class="logo" style="height: 80px;">
       <input style="margin: 10px; width: 470px;" type="search" class="form-control ml-auto" [(ngModel)]="filter" placeholder="Search for goods...">
     </div>
-
     <div class="cart ml-2">
       <button class="btn btn-danger ml-2" (click)="goToAdminPage()" style="background-color: transparent;">
         <i class="fas fa-user"></i> Admin
@@ -34,7 +33,7 @@
   </div>
 </div>
 
-<div class="container">
+<div style="margin-top: 24px;" class="container">
   <div class="row">
     <div class="col-md-3" *ngFor="let product of this.showedProducts">
       <div class="card mb-3" (click)="goItem(product)">
