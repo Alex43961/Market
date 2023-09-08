@@ -17,11 +17,10 @@ import { ItemService } from '../item.service';
 })
 export class HomeComponent {
   currentPage: number = 1;
-  elementsOnThePage: number = 5;
+  elementsOnThePage: number = 4;
   filter: string = '';
   products: any[]= [];
   filteredProducts:any[] = [];
-
 
 
   constructor(
