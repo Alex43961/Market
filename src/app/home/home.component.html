@@ -34,17 +34,21 @@
   </div>
 </div>
 
-
-<div class="items-list">
-  <div *ngFor="let product of this.showedProducts" class="item" (click)="goItem(product)">
-
-    <img [src]="product.image" alt="Something went wrong" width="150">
-    <p class="productName">{{product.name}}</p>
-    <p class="price">{{product.price}} $</p>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let product of this.showedProducts">
+      <div class="card mb-3" (click)="goItem(product)">
+        <img class="card-img-top" [src]="product.image" alt="Something went wrong" width="150">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">{{product.price}} $</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="pagination">
+
+<div class="pagination" style="margin: 30px;">
   <button (click)="currentPage = currentPage - 1" [disabled]="currentPage === 1">
     Previous page
   </button>
@@ -54,7 +58,7 @@
   </button>
 </div> 
 
-<footer style="background-color: #47484a;" class="navbar navbar-expand-lg  fixed-bottom">
+<footer style="background-color: #47484a;" class="navbar navbar-expand-lg">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -68,16 +72,14 @@
         <p class="text-light">Subscribe to our newsletter:</p>
         <form>
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Ваш Email">
+            <input type="email" class="form-control" placeholder="Your Email...">
           </div>
         </form>
       </div>
     </div>
     <hr class="bg-light">
-    <p class="text-light text-center">&copy; 2002 Your Company. All rights reserved.</p>
+    <p class="text-light text-center">&copy; 2023 M.Tech. All rights reserved.</p>
   </div>
 </footer>
-
-
 
 
