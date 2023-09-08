@@ -12,6 +12,7 @@ export class AdminPageComponent {
   productForm: FormGroup;
   productList: { image: string, name: string, price: number, description: string, comments: Array<string>[] }[] = [];
   imageLoadingFailed: boolean = false;
+  productStorage:any[] =[];
 
   constructor(
     private fb: FormBuilder,
@@ -33,8 +34,13 @@ export class AdminPageComponent {
         description: this.productForm.value.productDescription,
         comments: []
       });
+      const storedData = localStorage.getItem('productList');
+    if (storedData) {
+      this.productStorage = JSON.parse(storedData);
+    }
+    this.productStorage.push(...this.productList);
       // Сохранить список товаров в localStorage
-      localStorage.setItem('productList', JSON.stringify(this.productList));
+      localStorage.setItem('productList', JSON.stringify(this.productStorage));
       // Очистить форму
       this.productForm.reset();
     }

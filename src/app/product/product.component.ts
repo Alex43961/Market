@@ -29,7 +29,7 @@ export class ProductComponent {
   ngOnInit() {
     const items = this.itemService.getProduct();
     this.product = items[items.length - 1];
-    // Загрузка комментариев из local Storage;
+    // Загрузка комментариев из local Storage
     const storedComments = localStorage.getItem('productComments');
     if (storedComments) {
       this.comments = JSON.parse(storedComments);
