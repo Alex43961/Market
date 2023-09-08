@@ -4,32 +4,24 @@ import { Products } from '../products';
 import { Router } from '@angular/router';
 import { ItemService } from '../item.service';
 
-
-
-
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 
 })
+
 export class HomeComponent {
   currentPage: number = 1;
-  elementsOnThePage: number = 5;
+  elementsOnThePage: number = 4;
   filter: string = '';
   products: any[]= [];
   filteredProducts:any[] = [];
-
-
 
   constructor(
     private productsDataService: ProductsDataService,
     public itemService: ItemService,
     public router: Router) { }
-
-
 
   ngOnInit(): void {
     this.products = this.productsDataService.getProductsList();
