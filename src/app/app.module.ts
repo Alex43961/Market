@@ -9,6 +9,7 @@ import { CartComponent } from './cart/cart.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Comment } from './comments';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-     ReactiveFormsModule
+     ReactiveFormsModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]

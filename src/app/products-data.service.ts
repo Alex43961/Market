@@ -5,7 +5,8 @@ import { Products } from './products';
   providedIn: 'root'
 })
 export class ProductsDataService {
-  productStorage:Products[] =[];
+ 
+ productStorage: any[] =[];
 
   private productsList: Products[] = [
     {
@@ -97,14 +98,16 @@ export class ProductsDataService {
   constructor() { }
 
   getProductsList(): Products[] {
-    const storedData = localStorage.getItem('productList');
-    if (storedData) {
-      this.productStorage = JSON.parse(storedData);
-    }
-    const isProductAlreadyExists = this.productStorage.some(product => product === this.productsList);
-    if (!isProductAlreadyExists) {
-    this.productsList.push(...this.productStorage);
-    }
+    
+    // let storedData = localStorage.getItem('productList');
+    // if (storedData) {
+    //   this.productStorage = JSON.parse(storedData);
+    // }
+    
+    // let existIndex = this.productsList.findIndex(product=> product === this.productStorage);
+    // if (existIndex === -1) {
+    // this.productsList.push(...this.productStorage);
+    // }
     console.log(this.productsList);
     return this.productsList;
   }

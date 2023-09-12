@@ -13,7 +13,7 @@ import { CartService } from '../cart.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-
+providers:[ProductsDataService]
 })
 export class HomeComponent {
   currentPage: number = 1;
@@ -33,8 +33,13 @@ export class HomeComponent {
 
 
   ngOnInit(): void {
-    
+    let productStorage: any[] =[];
     this.products = this.productsDataService.getProductsList();
+    let storedData = localStorage.getItem('productList');
+    if (storedData) {
+      productStorage = JSON.parse(storedData);
+    }
+    this.products.push(...productStorage);
     // console.log(this.products);
   }
 
