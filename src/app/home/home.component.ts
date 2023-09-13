@@ -4,33 +4,25 @@ import { Router } from '@angular/router';
 import { ItemService } from '../item.service';
 import { CartService } from '../cart.service';
 
-
-
-
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 providers:[ProductsDataService]
 })
+
 export class HomeComponent {
   currentPage: number = 1;
-  elementsOnThePage: number = 5;
+  elementsOnThePage: number = 4;
   filter: string = '';
   products: any[]= [];
   filteredProducts:any[] = [];
-
-
 
   constructor(
     private productsDataService: ProductsDataService,
     public itemService: ItemService,
     private cartService: CartService,    
     public router: Router) { }
-
-
 
   ngOnInit(): void {
     let productStorage: any[] =[];
