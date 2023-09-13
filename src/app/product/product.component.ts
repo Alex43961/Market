@@ -46,38 +46,16 @@ export class ProductComponent {
 
     if (this.savedComments) {
 
- function findObjectByName(arr: any[], nameToFind: string): any| undefined {
-    return arr.find(obj => obj.name === nameToFind);
-}
+      function findObjectByName(arr: any[], nameToFind: string): any| undefined {
+          return arr.find(obj => obj.name === nameToFind);
+      }
 
-const foundObject = findObjectByName(this.savedComments, this.product.name);
+      const foundObject = findObjectByName(this.savedComments, this.product.name);
 
-if (foundObject) {
-  this.commentsList = foundObject;
-    console.log('Найден объект:', foundObject);
-} 
-//else {
-//     this.commentsList.name = this.product.name;
-//         this.commentsList.comments.push(newComment);
-//         this.myComments.push(this.commentsList);
-//     console.log('Объект не найден');
-// }
-      // let productComments: any;
-
-      // for (let key in this.savedComments) {
-
-      //   if (this.savedComments[key] === this.product.name) {
-      //     productComments = this.savedComments;
-      //     console.log("key", this.savedComments[key])
-      //     console.log("productComments", productComments);
-
-      //   }
-
-
-      // }
-      // if (productComments) {
-      //   this.commentsList = productComments;
-      // }
+      if (foundObject) {
+        this.commentsList = foundObject;
+          console.log('Найден объект:', foundObject);
+      } 
     }
     console.log("productName", this.product.name);
     console.log("commentsList", this.commentsList);
