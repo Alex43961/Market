@@ -97,18 +97,7 @@ export class ProductsDataService {
 
   constructor() { }
 
-  getProductsList(): Products[] {
-    
-    // let storedData = localStorage.getItem('productList');
-    // if (storedData) {
-    //   this.productStorage = JSON.parse(storedData);
-    // }
-    
-    // let existIndex = this.productsList.findIndex(product=> product === this.productStorage);
-    // if (existIndex === -1) {
-    // this.productsList.push(...this.productStorage);
-    // }
-    console.log(this.productsList);
+  getProductsList(): Products[] {  
     return this.productsList;
   }
 }

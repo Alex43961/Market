@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class CartComponent {
   cartItems: any[] = [];
   selectedCurrency: string = '$';
+  totalForProduct:number = 0;
 
 
   constructor
@@ -36,6 +37,11 @@ export class CartComponent {
       item.quantity--;
     }
   }
+
+//   calculateTotalForProduct(){
+//     this.totalForProduct = this.cartItems.
+// return this.totalForProduct;
+//   }
 
   calculateTotal(): number {
 

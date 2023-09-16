@@ -13,7 +13,7 @@ providers:[ProductsDataService]
 
 export class HomeComponent {
   currentPage: number = 1;
-  elementsOnThePage: number = 4;
+  elementsOnThePage: number = 5;
   filter: string = '';
   products: any[]= [];
   filteredProducts:any[] = [];
@@ -31,13 +31,10 @@ export class HomeComponent {
     if (storedData) {
       productStorage = JSON.parse(storedData);
     }
-    this.products.push(...productStorage);
-    // console.log(this.products);
+    this.products.push(...productStorage);    
   }
 
-  goItem(product: any) {
-    // const x = product;
-    // console.log(x);
+  goItem(product: any) {   
     this.itemService.setProduct(product);
 
     this.router.navigate(['product']);
