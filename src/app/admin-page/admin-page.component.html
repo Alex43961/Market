@@ -2,6 +2,11 @@
 
 <div class="admin-page">
   <h2>Страница админа</h2>
+  <div *ngIf="!isLoggedIn">
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" [(ngModel)]="password">
+    <button (click)="checkPassword()">Войти</button>
+  </div>
   <form [formGroup]="productForm" (ngSubmit)="addProduct()">
     <div class="form-group">
       <label for="productName">Название товара</label>
