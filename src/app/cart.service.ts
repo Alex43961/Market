@@ -28,14 +28,15 @@ export class CartService {
   clearCart(): void {
     this.items = [];
   }
-  getItemCount(): number {
+  getItemsCount(): number {
     let initialValue = 0;
-    let sum = this.items.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.quantity,
-      initialValue,
-    );
-    
+    let sum = this.items.length    
     return sum;
+  }
+  getTotalPrice(items:any[]){
+    for(let item of items){
+    item.totalPrice = item.quantity * item.price;
+  }
   }
 
 

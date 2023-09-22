@@ -66,7 +66,7 @@ goToCart() {
 }
 
  getCartItemCount(): number {
-    return this.cartService.getItemCount();
+    return this.cartService.getItemsCount();
   }
  
 }

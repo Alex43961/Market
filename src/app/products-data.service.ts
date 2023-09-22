@@ -13,7 +13,7 @@ export class ProductsDataService {
       image: "../assets/556_text.webp",
       name: "item-1",
       price: 100,
-      description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque officia magni incidunt perspiciatis aperiam a beatae deserunt, saepe rerum vitae?"     
+      description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque officia magni incidunt perspiciatis aperiam a beatae deserunt, saepe rerum vitae?"      
     },
     {
       image: "../assets/556_text.webp",

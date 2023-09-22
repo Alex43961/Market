@@ -50,16 +50,19 @@ export class AdminPageComponent {
         price: +this.productForm.value.productPrice,
         description: this.productForm.value.productDescription
       });
-      const storedData = localStorage.getItem('productList');
-    if (storedData) {
-      this.productStorage = JSON.parse(storedData);
-    }
-    this.productStorage.push(...this.productList);
+      // const storedData = localStorage.getItem('productList');
+    // if (storedData) {
+      // this.productStorage = JSON.parse(storedData);
+      this.productStorage.push(...this.productList);
+      console.log("[productStorage]",this.productStorage);
+    // }
+
+    
       // Сохранить список товаров в localStorage
       localStorage.setItem('productList', JSON.stringify(this.productStorage));
       // Очистить форму
       this.productForm.reset();
-      console.log("[productStorage]",this.productStorage);
+      
     }
   }
 

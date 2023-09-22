@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { Router } from '@angular/router';
+import { Products } from '../products';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 export class CartComponent {
   cartItems: any[] = [];
   selectedCurrency: string = '$';
-  totalForProduct:number = 0;
+  totalPrice:number = 0;
+
 
 
   constructor
@@ -18,6 +20,12 @@ export class CartComponent {
   public router: Router) {
     this.cartItems = this.cartService.getItems();
   }
+
+ngOnInit(){
+  
+  this.cartService.getTotalPrice(this.cartItems);
+}
+
   removeItem(item: any): void {
 
     const index = this.cartItems.indexOf(item);
@@ -29,19 +37,18 @@ export class CartComponent {
   increaseQuantity(item: any): void {
 
     item.quantity++;
+    item.totalPrice = item.quantity * item.price;    
   }
 
   decreaseQuantity(item: any): void {
 
     if (item.quantity > 1) {
       item.quantity--;
+      item.totalPrice = item.quantity * item.price;      
     }
   }
 
-//   calculateTotalForProduct(){
-//     this.totalForProduct = this.cartItems.
-// return this.totalForProduct;
-//   }
+
 
   calculateTotal(): number {
 
@@ -58,7 +65,7 @@ this.cartService.clearCart();
   }
 
   getCartItemCount(): number {
-    return this.cartService.getItemCount();
+    return this.cartService.getItemsCount();
   }
 
    goBack() {
