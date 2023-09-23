@@ -18,7 +18,7 @@ export class CartComponent {
   constructor
   (private cartService: CartService,
   public router: Router) {
-    this.cartItems = this.cartService.getItems();
+    this.cartItems = this.cartService.getItems("cartList");
   }
 
 ngOnInit(){
@@ -32,12 +32,14 @@ ngOnInit(){
     if (index !== -1) {
       this.cartItems.splice(index, 1);
     }
+    this.cartService.updateStorage("cartList", this.cartItems);
   }
 
   increaseQuantity(item: any): void {
 
     item.quantity++;
-    item.totalPrice = item.quantity * item.price;    
+    item.totalPrice = item.quantity * item.price;
+    this.cartService.updateStorage("cartList", this.cartItems);    
   }
 
   decreaseQuantity(item: any): void {
@@ -46,6 +48,7 @@ ngOnInit(){
       item.quantity--;
       item.totalPrice = item.quantity * item.price;      
     }
+    this.cartService.updateStorage("cartList", this.cartItems);
   }
 
 

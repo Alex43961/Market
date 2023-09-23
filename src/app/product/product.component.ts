@@ -68,7 +68,7 @@ export class ProductComponent {
 
 
   addComment(newComment: string): void {
-    if (this.savedComments && this.savedComments !== undefined) {
+    if (this.savedComments) {
       this.myComments = this.savedComments;
 
       console.log("myComments", this.myComments)

@@ -18,7 +18,7 @@
 <div>
   <h2>Добавить комментарий</h2>
   <form (ngSubmit)="addComment(newCommentText)">
-    <textarea [(ngModel)]="newCommentText" #myComment="ngModel" name="commentText" required pattern='[A-zА-я\s\d]+'></textarea>
+    <textarea [(ngModel)]="newCommentText" #myComment="ngModel" name="commentText" required></textarea>
     <button type="submit"[disabled]="myComment.untouched|| myComment.invalid" >Добавить комментарий</button>
   </form>
 </div>

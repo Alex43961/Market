@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -15,13 +15,15 @@ export class AdminPageComponent {
   productStorage: any[] = [];
   isLoggedIn: boolean = false;
   password: string = "";
-  passwordInvalid:boolean = false;
+  passwordInvalid: boolean = false;
+  isModalWindow: boolean = false;
+  selectIndex:number= -1;
 
   constructor(
     private fb: FormBuilder,
     public router: Router) {
     this.productForm = this.fb.group({
-      productName: ['', [Validators.required, Validators.pattern('[A-zА-я\s\d]+')]],
+      productName: ['', [Validators.required, Validators.pattern('[A-zА-я\s\]+')]],
       productDescription: ['', [Validators.required, Validators.pattern('[A-zА-я\s\d]+')]],
       productImage: ['', [Validators.required]],
       productPrice: ['', [Validators.required, Validators.pattern('[0-9]+')]]
@@ -76,11 +78,20 @@ export class AdminPageComponent {
     };
   }
 
-  deleteProduct(index: number) {
-    if (confirm('Вы уверены, что хотите удалить этот товар?')) {
-      this.productList.splice(index, 1);
-      localStorage.setItem('productList', JSON.stringify(this.productList));
-    }
+  showModalWindow(i) {
+    this.selectIndex = i;
+    this.isModalWindow = true;
+    
+  }
+
+  hideModalWindow() {
+    this.isModalWindow = false;
+  }
+
+  deleteProduct() {    
+    this.productList.splice(this.selectIndex, 1);
+    localStorage.setItem('productList', JSON.stringify(this.productList));
+    this.hideModalWindow();
   }
 
   goBack() {
