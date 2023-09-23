@@ -24,7 +24,8 @@ import { Comment } from './comments';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-     ReactiveFormsModule,    
+     ReactiveFormsModule,
+         
   ],
   providers: [],
   bootstrap: [AppComponent]

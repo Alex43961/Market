@@ -12,34 +12,35 @@ export class AdminPageComponent {
   productForm: FormGroup;
   productList: { image: string, name: string, price: number, description: string }[] = [];
   imageLoadingFailed: boolean = false;
-  productStorage:any[] =[];
+  productStorage: any[] = [];
   isLoggedIn: boolean = false;
-  password:string = "";
- 
+  password: string = "";
+  passwordInvalid:boolean = false;
+
   constructor(
     private fb: FormBuilder,
     public router: Router) {
     this.productForm = this.fb.group({
-      productName: ['', [Validators.required, Validators.pattern('[a-zA-Z\s]+')]],
-      productDescription: ['', [Validators.required, Validators.pattern('[a-zA-Z\s\d]+')]],
+      productName: ['', [Validators.required, Validators.pattern('[A-zА-я\s\d]+')]],
+      productDescription: ['', [Validators.required, Validators.pattern('[A-zА-я\s\d]+')]],
       productImage: ['', [Validators.required]],
       productPrice: ['', [Validators.required, Validators.pattern('[0-9]+')]]
     });
   }
 
-   checkPassword() {
+  checkPassword() {
     if (this.password === 'admin') {
       this.isLoggedIn = true;
     } else {
-      alert('Неправильный пароль');
+      this.passwordInvalid = true;
     }
   }
 
-  
-     ngOnInit() {
+
+  ngOnInit() {
     const storedProducts = localStorage.getItem('productList');
     this.productList = storedProducts ? JSON.parse(storedProducts) : [];
-  console.log("[init]",this.productList)
+    console.log("[init]", this.productList)
   }
 
   addProduct() {
@@ -50,19 +51,17 @@ export class AdminPageComponent {
         price: +this.productForm.value.productPrice,
         description: this.productForm.value.productDescription
       });
-      // const storedData = localStorage.getItem('productList');
-    // if (storedData) {
-      // this.productStorage = JSON.parse(storedData);
-      this.productStorage.push(...this.productList);
-      console.log("[productStorage]",this.productStorage);
-    // }
 
-    
+      this.productStorage.push(...this.productList);
+      console.log("[productStorage]", this.productStorage);
+
+
+
       // Сохранить список товаров в localStorage
       localStorage.setItem('productList', JSON.stringify(this.productStorage));
       // Очистить форму
       this.productForm.reset();
-      
+
     }
   }
 
@@ -81,7 +80,7 @@ export class AdminPageComponent {
     if (confirm('Вы уверены, что хотите удалить этот товар?')) {
       this.productList.splice(index, 1);
       localStorage.setItem('productList', JSON.stringify(this.productList));
-    }    
+    }
   }
 
   goBack() {
