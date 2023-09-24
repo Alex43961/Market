@@ -5,7 +5,6 @@ import { Products } from './products';
   providedIn: 'root'
 })
 export class ItemService {
-
   product: Products[] = [];
 
   constructor() { }

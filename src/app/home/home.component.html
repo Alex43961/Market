@@ -25,8 +25,9 @@
         <i class="fas fa-user"></i> Admin
         <img style="height: 30px;" src="/assets/admin.png" alt="">
       </button>
-      <button class="btn btn-danger ml-2" style="background-color: transparent;">
-        <i class="fas fa-shopping-cart"></i> Cart
+      <button class="btn btn-danger ml-2" (click)="goToCart()" style="background-color: transparent;">
+        <i class="fas fa-shopping-cart">Cart</i> 
+        <span class="cartCounter">{{ getCartItemCount() }}</span>
         <img style="height: 30px;" src="/assets/cart.png" alt="">
       </button>
     </div>

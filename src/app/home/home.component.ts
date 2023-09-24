@@ -13,7 +13,7 @@ providers:[ProductsDataService]
 
 export class HomeComponent {
   currentPage: number = 1;
-  elementsOnThePage: number = 4;
+  elementsOnThePage: number = 5;
   filter: string = '';
   products: any[]= [];
   filteredProducts:any[] = [];
@@ -31,17 +31,12 @@ export class HomeComponent {
     if (storedData) {
       productStorage = JSON.parse(storedData);
     }
-    this.products.push(...productStorage);
-    // console.log(this.products);
+    this.products.push(...productStorage);    
   }
 
-  goItem(product: any) {
-    // const x = product;
-    // console.log(x);
+  goItem(product: any) {   
     this.itemService.setProduct(product);
-
     this.router.navigate(['product']);
-
   }
 
   get startIndex(): number {
@@ -51,7 +46,6 @@ export class HomeComponent {
   get endIndex(): number {
     return this.startIndex + this.elementsOnThePage;
   }
-
   
   get showedProducts(): any[] {
     this.filteredProducts = this.products.filter(product =>
@@ -69,7 +63,6 @@ goToCart() {
 }
 
  getCartItemCount(): number {
-    return this.cartService.getItemCount();
-  }
- 
+    return this.cartService.getItemsCount();
+  } 
 }

@@ -10,6 +10,7 @@
     <button (click)="decreaseQuantity(item)">-</button>     
   <span>{{ item.quantity }}</span>
   <button (click)="increaseQuantity(item)">+</button>
+  <span>Total price: {{item.totalPrice}}{{ selectedCurrency }}</span>
   </div>
  <button (click)="removeItem(item)">Remove</button>
 </div>

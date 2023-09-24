@@ -10,19 +10,38 @@ import { Router } from '@angular/router';
 })
 export class AdminPageComponent {
   productForm: FormGroup;
-  productList: { image: string, name: string, price: number, description: string, comments: Array<string>[] }[] = [];
+  productList: { image: string, name: string, price: number, description: string }[] = [];
   imageLoadingFailed: boolean = false;
-  productStorage:any[] =[];
+  productStorage: any[] = [];
+  isLoggedIn: boolean = false;
+  password: string = "";
+  passwordInvalid: boolean = false;
+  isModalWindow: boolean = false;
+  selectIndex: number = -1;
 
   constructor(
     private fb: FormBuilder,
     public router: Router) {
     this.productForm = this.fb.group({
-      productName: ['', [Validators.required, Validators.pattern('[a-zA-Z\s]+')]],
-      productDescription: ['', [Validators.required, Validators.pattern('[a-zA-Z\s\d]+')]],
+      productName: ['', [Validators.required, Validators.pattern('[A-zА-я\s\]+')]],
+      productDescription: ['', [Validators.required, Validators.pattern('[A-zА-я\s\d]+')]],
       productImage: ['', [Validators.required]],
       productPrice: ['', [Validators.required, Validators.pattern('[0-9]+')]]
     });
+  }
+
+  checkPassword() {
+    if (this.password === 'admin') {
+      this.isLoggedIn = true;
+    } else {
+      this.passwordInvalid = true;
+    }
+  }
+
+
+  ngOnInit() {
+    const storedProducts = localStorage.getItem('productList');
+    this.productList = storedProducts ? JSON.parse(storedProducts) : [];
   }
 
   addProduct() {
@@ -31,17 +50,11 @@ export class AdminPageComponent {
         image: this.productForm.value.productImage,
         name: this.productForm.value.productName,
         price: +this.productForm.value.productPrice,
-        description: this.productForm.value.productDescription,
-        comments: []
+        description: this.productForm.value.productDescription
       });
-      const storedData = localStorage.getItem('productList');
-    if (storedData) {
-      this.productStorage = JSON.parse(storedData);
-    }
-    this.productStorage.push(...this.productList);
-      // Сохранить список товаров в localStorage
+
+      this.productStorage.push(...this.productList);
       localStorage.setItem('productList', JSON.stringify(this.productStorage));
-      // Очистить форму
       this.productForm.reset();
     }
   }
@@ -57,11 +70,19 @@ export class AdminPageComponent {
     };
   }
 
-  deleteProduct(index: number) {
-    if (confirm('Вы уверены, что хотите удалить этот товар?')) {
-      this.productList.splice(index, 1);
-      localStorage.setItem('productList', JSON.stringify(this.productList));
-    }
+  showModalWindow(i) {
+    this.selectIndex = i;
+    this.isModalWindow = true;
+  }
+
+  hideModalWindow() {
+    this.isModalWindow = false;
+  }
+
+  deleteProduct() {
+    this.productList.splice(this.selectIndex, 1);
+    localStorage.setItem('productList', JSON.stringify(this.productList));
+    this.hideModalWindow();
   }
 
   goBack() {
