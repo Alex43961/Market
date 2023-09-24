@@ -36,29 +36,21 @@ export class ProductComponent {
   ngOnInit() {
     const items = this.itemService.getProduct();
     this.product = items[items.length - 1];
-
     this.loadComments();
-
   }
 
   loadComments(): void {
     console.log("savedComments", this.savedComments);
-
     if (this.savedComments) {
-
       function findObjectByName(arr: any[], nameToFind: string): any | undefined {
         return arr.find(obj => obj.name === nameToFind);
       }
-
       const foundObject = findObjectByName(this.savedComments, this.product.name);
-
       if (foundObject) {
         this.commentsList = foundObject;
         console.log('Найден объект:', foundObject);
       }
-    }
-    console.log("productName", this.product.name);
-    console.log("commentsList", this.commentsList);
+    }    
   }
 
   addToCart(item: any): void {
@@ -70,29 +62,17 @@ export class ProductComponent {
   addComment(newComment: string): void {
     if (this.savedComments) {
       this.myComments = this.savedComments;
-
-      console.log("myComments", this.myComments)
-
       function findObjectByName(arr: any[], nameToFind: string): any | undefined {
         return arr.find(obj => obj.name === nameToFind);
       }
-
       const foundObject = findObjectByName(this.myComments, this.product.name);
-
-      if (foundObject) {
-        console.log('Найден объект:', foundObject);
+      if (foundObject) {        
         foundObject.comments.push(newComment.replace(/кокос|банан|плохой|\@/gi, match => '*'.repeat(match.length)));
 
       } else {
-        console.log('Объект не найден');
-
         this.commentsList.name = this.product.name;
-
-
         this.commentsList.comments.push(newComment.replace(/кокос|банан|плохой|\@/gi, match => '*'.repeat(match.length)));
         this.myComments.push(this.commentsList);
-        console.log("myComments 2", this.myComments)
-
       }
     }
     this.commentsService.setItem('commentsList', this.myComments);

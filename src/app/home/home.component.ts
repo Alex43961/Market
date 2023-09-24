@@ -36,9 +36,7 @@ export class HomeComponent {
 
   goItem(product: any) {   
     this.itemService.setProduct(product);
-
     this.router.navigate(['product']);
-
   }
 
   get startIndex(): number {
@@ -48,7 +46,6 @@ export class HomeComponent {
   get endIndex(): number {
     return this.startIndex + this.elementsOnThePage;
   }
-
   
   get showedProducts(): any[] {
     this.filteredProducts = this.products.filter(product =>
@@ -67,6 +64,5 @@ goToCart() {
 
  getCartItemCount(): number {
     return this.cartService.getItemsCount();
-  }
- 
+  } 
 }

@@ -17,7 +17,7 @@ export class AdminPageComponent {
   password: string = "";
   passwordInvalid: boolean = false;
   isModalWindow: boolean = false;
-  selectIndex:number= -1;
+  selectIndex: number = -1;
 
   constructor(
     private fb: FormBuilder,
@@ -42,7 +42,6 @@ export class AdminPageComponent {
   ngOnInit() {
     const storedProducts = localStorage.getItem('productList');
     this.productList = storedProducts ? JSON.parse(storedProducts) : [];
-    console.log("[init]", this.productList)
   }
 
   addProduct() {
@@ -55,15 +54,8 @@ export class AdminPageComponent {
       });
 
       this.productStorage.push(...this.productList);
-      console.log("[productStorage]", this.productStorage);
-
-
-
-      // Сохранить список товаров в localStorage
       localStorage.setItem('productList', JSON.stringify(this.productStorage));
-      // Очистить форму
       this.productForm.reset();
-
     }
   }
 
@@ -81,14 +73,13 @@ export class AdminPageComponent {
   showModalWindow(i) {
     this.selectIndex = i;
     this.isModalWindow = true;
-    
   }
 
   hideModalWindow() {
     this.isModalWindow = false;
   }
 
-  deleteProduct() {    
+  deleteProduct() {
     this.productList.splice(this.selectIndex, 1);
     localStorage.setItem('productList', JSON.stringify(this.productList));
     this.hideModalWindow();

@@ -11,23 +11,21 @@ import { Products } from '../products';
 export class CartComponent {
   cartItems: any[] = [];
   selectedCurrency: string = '$';
-  totalPrice:number = 0;
+  totalPrice: number = 0;
 
 
 
   constructor
-  (private cartService: CartService,
-  public router: Router) {
+    (private cartService: CartService,
+      public router: Router) {
     this.cartItems = this.cartService.getItems("cartList");
   }
 
-ngOnInit(){
-  
-  this.cartService.getTotalPrice(this.cartItems);
-}
+  ngOnInit() {
+    this.cartService.getTotalPrice(this.cartItems);
+  }
 
   removeItem(item: any): void {
-
     const index = this.cartItems.indexOf(item);
     if (index !== -1) {
       this.cartItems.splice(index, 1);
@@ -36,17 +34,15 @@ ngOnInit(){
   }
 
   increaseQuantity(item: any): void {
-
     item.quantity++;
     item.totalPrice = item.quantity * item.price;
-    this.cartService.updateStorage("cartList", this.cartItems);    
+    this.cartService.updateStorage("cartList", this.cartItems);
   }
 
   decreaseQuantity(item: any): void {
-
     if (item.quantity > 1) {
       item.quantity--;
-      item.totalPrice = item.quantity * item.price;      
+      item.totalPrice = item.quantity * item.price;
     }
     this.cartService.updateStorage("cartList", this.cartItems);
   }
@@ -54,7 +50,6 @@ ngOnInit(){
 
 
   calculateTotal(): number {
-
     let total = 0;
     for (const item of this.cartItems) {
       total += item.price * item.quantity;
@@ -63,7 +58,7 @@ ngOnInit(){
   }
 
   checkout(): void {
-this.cartService.clearCart();
+    this.cartService.clearCart();
     this.cartItems = [];
   }
 
@@ -71,8 +66,7 @@ this.cartService.clearCart();
     return this.cartService.getItemsCount();
   }
 
-   goBack() {
+  goBack() {
     this.router.navigate(['']);
   }
- 
 }

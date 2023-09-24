@@ -15,8 +15,7 @@ export class CommentsService {
     const itemList = localStorage.getItem(key);
     if(itemList){
       return JSON.parse( itemList);
-    }
-    
+    }    
   }
 
   setItem(key: string, value: any): void {
