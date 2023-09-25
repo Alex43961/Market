@@ -48,7 +48,8 @@ export class HomeComponent {
   }
   
 
-  
+  // work!
+
   get showedProducts(): any[] {
     this.filteredProducts = this.products.filter(product =>
       product.name.toLowerCase().includes(this.filter.toLowerCase())
