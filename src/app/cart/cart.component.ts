@@ -13,8 +13,6 @@ export class CartComponent {
   selectedCurrency: string = '$';
   totalPrice: number = 0;
 
-
-
   constructor
     (private cartService: CartService,
       public router: Router) {

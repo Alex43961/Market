@@ -8,7 +8,7 @@ import { CartService } from '../cart.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-providers:[ProductsDataService]
+  providers:[ProductsDataService]
 })
 
 export class HomeComponent {
@@ -47,9 +47,6 @@ export class HomeComponent {
     return this.startIndex + this.elementsOnThePage;
   }
   
-
-  // work!
-
   get showedProducts(): any[] {
     this.filteredProducts = this.products.filter(product =>
       product.name.toLowerCase().includes(this.filter.toLowerCase())
