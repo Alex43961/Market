@@ -7,3 +7,76 @@ input.ng-invalid.ng-dirty {
     border: 2px red solid;
 }
 
+#exit {
+    margin: 10px;
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+  .admin-page {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+  }
+
+  .admin-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .login-form label {
+    font-size: 18px;
+  }
+
+  .login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 14px;
+  }
+
+  .btn-primary,
+  .btn-success,
+  .btn-danger {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
+  .product-list {
+    margin-top: 30px;
+  }
+
+  .list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .list-group-item img {
+    margin-right: 10px;
+  }
+
+  .modal-window {
+    margin-top: 30px;
+  }
+
+  .modal-window span {
+    font-size: 18px;
+  }
