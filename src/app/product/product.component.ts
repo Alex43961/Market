@@ -12,6 +12,7 @@ import { Comment } from '../comments';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
+
 export class ProductComponent {
   product: any;
   commentsList: any = { name: '', comments: [] };
@@ -19,8 +20,6 @@ export class ProductComponent {
   myComments: any[] = [];
   newCommentText: string = '';
   savedComments = this.commentsService.getItem('commentsList');
-
-
 
   constructor(private productsDataService: ProductsDataService,
     public itemService: ItemService,
@@ -58,7 +57,6 @@ export class ProductComponent {
 
   }
 
-
   addComment(newComment: string): void {
     if (this.savedComments) {
       this.myComments = this.savedComments;
@@ -80,7 +78,3 @@ export class ProductComponent {
     this.loadComments();
   }
 }
-
-
-
-
