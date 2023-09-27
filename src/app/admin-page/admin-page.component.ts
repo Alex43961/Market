@@ -23,8 +23,8 @@ export class AdminPageComponent {
     private fb: FormBuilder,
     public router: Router) {
     this.productForm = this.fb.group({
-      productName: ['', [Validators.required, Validators.pattern('[A-zА-я\s\]+')]],
-      productDescription: ['', [Validators.required, Validators.pattern('[A-zА-я\s\d]+')]],
+      productName: ['', [Validators.required, Validators.pattern('[A-zА-я ]+')]],
+      productDescription: ['', [Validators.required, Validators.pattern('[A-Za-zА-Яа-я0-9 ]+')]],
       productImage: ['', [Validators.required]],
       productPrice: ['', [Validators.required, Validators.pattern('[0-9]+')]]
     });
