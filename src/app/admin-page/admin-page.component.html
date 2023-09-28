@@ -40,10 +40,11 @@
       </ul>
     </div>
     <div *ngIf="isModalWindow" class="modal-window mt-4">
-      <span>Вы уверены, что хотите удалить этот товар?</span>
-      <div class="mt-3">
-        <button (click)="hideModalWindow()" class="btn btn-primary">Нет</button>
-        <button (click)="deleteProduct()" class="btn btn-danger">Да</button>
+      <div class="modal-header"></div>
+      <span class="modal-body">Вы уверены, что хотите удалить этот товар?</span>
+      <div class="modal-footer">
+        <button (click)="hideModalWindow()" id="btn-modal-close">Нет</button>
+        <button (click)="deleteProduct()" id="btn-modal-delete">Удалить</button>
       </div>
     </div>
   </div>

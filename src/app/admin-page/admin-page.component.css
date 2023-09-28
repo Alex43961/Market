@@ -87,17 +87,21 @@ body {
   }
   
   .modal-header {
+    height: 50px;
     padding: 2px 16px;
-    background-color: #50158f; 
+    background-color: blue; 
     color: white;
   }
   
-  .modal-body {padding: 2px 16px;}
+  .modal-body {
+    padding: 2px 16px;
+    height: 100px;
+    }
   
   .modal-footer {
     height: 50px;
     padding: 2px 16px;
-    background-color: #50158f; 
+    background-color: blue; 
     color: white;
     display: flex;
     justify-content: space-around;
@@ -106,7 +110,7 @@ body {
   
   #btn-modal-delete {
     height: 30px;
-    width: 60px;
+    width: 100px;
     border: 1px solid #4538ef;
    transition-duration:  0.4s; 
   }
@@ -138,9 +142,11 @@ body {
     transform: scale(0.95);
     }
   
-  .modal-content {
-    position: relative;
+  .modal-window {
+    position: absolute;
+    left: 50%;
     top: 50%;
+    transform: translate(-50%, -50%);
     background-color: #fefefe;
     margin: auto;
     padding: 0;

@@ -89,7 +89,7 @@ export class ProductsDataService {
       image: 'https://i.allo.ua/media/catalog/product/cache/3/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/m/b/mba15-starlight-gallery1-202306_result_1.jpg',
       name: 'Ноутбук Apple MacBook Air 15" M2 256GB (MQKU3) Starlight',
       price: 499.99,
-      description: '/dsf'
+      description: 'Макбук (MacBook) - это линейка ноутбуков, разработанных и производимых американской компанией Apple. MacBook известен своим стильным дизайном, высокой производительностью и экосистемной интеграцией с другими устройствами Apple'
     },
 
     {
